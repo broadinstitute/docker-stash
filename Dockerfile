@@ -15,7 +15,7 @@ ENV STASH_HOME=/var/atlassian/application-data/stash \
 # Install git, download and extract Stash and create the required directory layout.
 # Try to limit the number of RUN instructions to minimise the number of layers that will need to be created.
 RUN apt-get update -qq \
-    && apt-get install -y --no-install-recommends git \
+    && apt-get install -y --no-install-recommends git mariadb-client \
 	&& mkdir -p ${STASH_INSTALL_DIR} \
     && curl -L --silent -o /tmp/atlassian-stash-${STASH_VERSION}.tar.gz https://downloads.atlassian.com/software/stash/downloads/atlassian-stash-${STASH_VERSION}.tar.gz \
 	&& tar -xz --strip=1 -C "$STASH_INSTALL_DIR" -f /tmp/atlassian-stash-${STASH_VERSION}.tar.gz \
