@@ -1,4 +1,4 @@
-# confluence
+# docker-stash
 
 Docker container for [Atlassian][1] [Stash][2]
 
