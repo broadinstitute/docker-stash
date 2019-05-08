@@ -12,7 +12,7 @@ sed -e "s/^JVM_MINIMUM_MEMORY=.*$/JVM_MINIMUM_MEMORY=\"${JAVA_XMS}\"/;s/^JVM_MAX
 
 xmlstarlet c14n --without-comments ${SERVER_XML}.orig | \
     xmlstarlet ed \
-        -i '/Server/Service/Connector[1]' -t attr -n 'scheme' -v 'http' \
+        -i '/Server/Service/Connector[1]' -t attr -n 'scheme' -v "${PROXY_SCHEME}" \
         -i '/Server/Service/Connector[1]' -t attr -n 'proxyName' -v "${PROXY_NAME}" \
         -i '/Server/Service/Connector[1]' -t attr -n 'proxyPort' -v "${PROXY_PORT}" | \
     xmlstarlet fo -s 2 > $SERVER_XML

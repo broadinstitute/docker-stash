@@ -5,7 +5,11 @@ if [ -z "${PROXY_NAME}" ]; then
 fi
 
 if [ -z "${PROXY_PORT}" ]; then
-    export PROXY_PORT='80'
+    export PROXY_PORT='443'
+fi
+
+if [ -z "${PROXY_SCHEME}" ]; then
+    export PROXY_SCHEME='https'
 fi
 
 # Configs to mess with
