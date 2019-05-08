@@ -17,4 +17,4 @@ if [ $RETCODE -ne 0 ]; then
     exit $RETCODE
 fi
 
-exec /opt/atlassian/stash/start-stash.sh -fg 2>&1
+exec /opt/atlassian/stash/bin/start-stash.sh -fg 2>&1
