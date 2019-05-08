@@ -18,6 +18,8 @@ COPY run.sh configs.sh /usr/local/bin/
 # Try to limit the number of RUN instructions to minimise the number of layers that will need to be created.
 RUN apt-get update -qq \
     && apt-get install -y --no-install-recommends git libtcnative-1 mariadb-client netcat xmlstarlet \
+    && echo "America/New_York" > /etc/timezone \
+    && dpkg-reconfigure -f noninteractive tzdata \
     && chmod 755 /usr/local/bin/*.sh \
     && mkdir -p ${STASH_INSTALL_DIR} \
     && curl -L --silent -o /tmp/atlassian-stash-${STASH_VERSION}.tar.gz https://downloads.atlassian.com/software/stash/downloads/atlassian-stash-${STASH_VERSION}.tar.gz \
